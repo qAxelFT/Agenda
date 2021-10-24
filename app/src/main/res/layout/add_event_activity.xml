@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.agenda.InternalStorageManagement">
+
+    <EditText
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:hint="@string/title"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/Due"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/Title"
+        android:layout_marginTop="100dp"
+        android:hint="@string/due"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/Priority"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/Due"
+        android:layout_marginTop="100dp"
+        android:hint="@string/priority"
+        android:importantForAutofill="no"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Priority"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:onClick="save"
+        android:text="@string/save" />
+
+</RelativeLayout>
