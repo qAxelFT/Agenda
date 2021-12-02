@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -40,7 +41,7 @@ public class InternalStorageManagement extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public boolean addData(String title, String due, int priority)
+    public boolean addData(String title, String due, String priority)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -53,5 +54,10 @@ public class InternalStorageManagement extends SQLiteOpenHelper
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         return result != -1;
+    }
+
+    public Cursor showData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 }

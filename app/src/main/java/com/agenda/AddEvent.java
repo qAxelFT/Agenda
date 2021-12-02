@@ -1,5 +1,6 @@
 package com.agenda;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,16 +39,18 @@ public class AddEvent extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Intent intent = new Intent(AddEvent.this, ListViewContents.class);
+
                 String title = _title.getText().toString();
                 String due = _due.getText().toString();
-                int priority = Integer.parseInt(_priority.getText().toString());
+                String priority = _priority.getText().toString();
 
                 boolean insertData = taskDB.addData(title, due, priority);
 
                 if(insertData)
                 {
                     Toast.makeText(AddEvent.this, "Data was succesfully saved", Toast.LENGTH_LONG).show();
-                    finish();
+                    startActivity(intent);
                 }
             }
         });
